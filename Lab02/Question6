@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlTypes;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace C_Lab2_4
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int marks;
+            char grade;
+            string studentName;
+
+            Console.Write("Enter the student's name: ");
+            studentName = Console.ReadLine();
+
+            Console.Write("Enter the student's marks: ");
+            while (!int.TryParse(Console.ReadLine(), out marks) || marks < 0 || marks > 100)
+            {
+                Console.Write("Marks should be between 0 and 100. Please enter the student's marks again: ");
+            }
+
+            if (marks >= 75)
+                grade = 'A';
+            else if (marks >= 60)
+                grade = 'B';
+            else if (marks >= 50)
+                grade = 'C';
+            else if (marks >= 40)
+                grade = 'D';
+            else
+                grade = 'F';
+
+            Console.WriteLine($"Name: {studentName}\nGrade: {grade}\n");
+            Console.ReadLine();
+        }
+    }
+}

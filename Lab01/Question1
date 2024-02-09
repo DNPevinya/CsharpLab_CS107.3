@@ -1,21 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Services;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C_Tute1Q1
+namespace C_Lab1_1
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter num1: ");
-            int num1 = int.Parse(Console.ReadLine()); //Parsing
-            Console.Write("Enter num2: ");
-            int num2 = Convert.ToInt32(Console.ReadLine()); //Converting
-         Console.WriteLine(num1+num2);
+            Console.Write("Enter the length of the rectangle: ");
+            double length= double.Parse(Console.ReadLine());
+            Console.Write("Enter the width of the rectangle: ");
+            double width= double.Parse(Console.ReadLine());
+
+            double area = Area(length, width);
+            Console.WriteLine("The Area of the rectangle is:" + area);
             Console.ReadLine();
+        }
+        static double Area(double length, double width)
+        {
+            return length * width;
         }
     }
 }

@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace C_Lab5_1
+{
+    internal class Product
+    {
+        private int ProductId;
+        private string ProductName;
+        private double Price;
+        private int QuantityInStock;
+
+        public Product(int productId, string productName, double price, int quantityInStock)
+        {
+            ProductId = productId;
+            ProductName = productName;
+            Price = price;
+            QuantityInStock = quantityInStock;
+        }
+
+        public void AddProduct(int quantity)
+        {
+            QuantityInStock += quantity;
+            Console.WriteLine($"{quantity} {ProductName}(s) added to stock. Total quantity in stock: {QuantityInStock}");
+        }
+
+        public void BuyProduct(int quantity)
+        {
+            if (quantity <= QuantityInStock)
+            {
+                QuantityInStock -= quantity;
+                Console.WriteLine($"{quantity} {ProductName}(s) sold. Remaining quantity in stock: {QuantityInStock}");
+            }
+            else
+            {
+                Console.WriteLine($"Insufficient stock! Only {QuantityInStock} {ProductName}(s) available.");
+            }
+        }
+
+        public void DisplayProductInfo()
+        {
+            Console.WriteLine($"Product ID: {ProductId}");
+            Console.WriteLine($"Product Name: {ProductName}");
+            Console.WriteLine($"Price: {Price}");
+            Console.WriteLine($"Quantity in Stock: {QuantityInStock}");
+        }
+
+        static void Main(string[] args)
+        {
+            Product product1 = new Product(101, "Laptop", 800.00, 10);
+            Console.WriteLine("Product Information:");
+            product1.DisplayProductInfo();
+            Console.ReadLine();
+        }
+    }
+}

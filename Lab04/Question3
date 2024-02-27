@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace C_Lab4_3
+{
+    internal class Employee
+    {
+        private int employeeID;
+        private string fullName;
+        private double salary;
+
+        public Employee(int employeeID, string fullName, double salary)
+        {
+            this.employeeID = employeeID;
+            this.fullName = fullName;
+            this.salary = salary;
+        }
+
+        public int EmployeeID => employeeID;
+        public string FullName
+        {
+            get => fullName;
+            set => fullName = value;
+        }
+        public double Salary
+        {
+            get => salary;
+            set => salary = value;
+        }
+        public void DisplayEmployeeInfo()
+        {
+            Console.WriteLine($"Employee ID: {employeeID}");
+            Console.WriteLine($"Full Name: {fullName}");
+            Console.WriteLine($"Salary: ${salary}");
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee employee = new Employee(101, "John Doe", 50000);
+
+            Console.WriteLine("Employee Information:");
+            employee.DisplayEmployeeInfo();
+
+            Console.WriteLine($"Employee ID: {employee.EmployeeID}");
+
+            employee.FullName = "Jane Smith";
+            Console.WriteLine($"Updated Full Name: {employee.FullName}");
+
+            employee.Salary = 55000;
+            Console.WriteLine($"Update Salary: ${employee.Salary}");
+
+            Console.ReadLine();
+        }
+    }
+}

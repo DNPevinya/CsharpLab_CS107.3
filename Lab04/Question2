@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace C_Lab4_2
+{
+    internal class LibraryBook
+    {
+        public string Title;
+        public string Author;
+        public bool Available;
+
+        public LibraryBook(string title, string author, bool available)
+        {
+            Title = title;
+            Author = author;
+            Available = available;
+        }
+
+        public void BorrowBook()
+        {
+            if (Available)
+            {
+                Available = false;
+                Console.WriteLine($"You have borrowed '{Title}' by {Author}.");
+            }
+            else
+            {
+                Console.WriteLine($"Sorry, '{Title}' by {Author} is currently not available.");
+            }
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            LibraryBook[] books = new LibraryBook[3];
+
+            books[0] = new LibraryBook("Book 1", "Author 1", true);
+            books[1] = new LibraryBook("Book 2", "Author 2", false);
+            books[2] = new LibraryBook("Book 3", "Author 3", true);
+
+            Console.WriteLine("Initial library status:");
+            DisplayLibraryStatus(books);
+
+            Console.WriteLine("\nBorrowing books:\n");
+            books[0].BorrowBook();
+            books[1].BorrowBook();
+            books[2].BorrowBook();
+
+            Console.WriteLine("\n\nUpdated library status:");
+            DisplayLibraryStatus(books);
+
+            Console.ReadLine();
+        }
+
+        static void DisplayLibraryStatus(LibraryBook[] books)
+        {
+            foreach (var book in books)
+            {
+                Console.WriteLine($"Title: {book.Title}, Author: {book.Author}, Available: {(book.Available ? "Yes" : "No")}");
+            }
+        }
+    }
+}

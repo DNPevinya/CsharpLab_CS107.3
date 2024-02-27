@@ -1,0 +1,39 @@
+using C_Lab4_1;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace C_Lab4_1
+{
+    class Product
+    {
+        public string ProductName;
+        public double Price;
+
+        public Product(string productName, double price)
+        {
+            ProductName = productName;
+            Price = price;
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            Product product1 = new Product("Smart Phone", 12000.00);
+            ProductDetails(product1);
+            Console.ReadLine();
+        }
+
+        static void ProductDetails(Product product)
+        {
+            Console.WriteLine("Product Details:");
+            Console.WriteLine($"Product Name: {product.ProductName}");
+            Console.WriteLine($"Price: ${product.Price}");
+            Console.WriteLine();
+        }
+    }
+}

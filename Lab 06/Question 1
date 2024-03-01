@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace C_Lab6_1
+{
+    public class Product
+    {
+        private int _productID;
+        private string _productName;
+        private double _price; // Fixed variable declaration
+        private int _quantityInStock;
+
+        public Product(int id, string name, double price, int qty)
+        {
+            this._productID = id;
+            this._productName = name;
+            this._price = price;
+            this._quantityInStock = qty;
+        }
+
+        public string ProductName
+        {
+            get { return this._productName; }
+        }
+
+        public double Price
+        {
+            get { return this._price; }
+        }
+
+        public int QuantityInStock
+        {
+            get { return this._quantityInStock; }
+        }
+
+        public void AddProduct()
+        {
+            this._quantityInStock++;
+        }
+
+        public void BuyProduct()
+        {
+            if (this._quantityInStock == 0)
+                Console.WriteLine("Sorry, but this product appears to be out of stock.");
+            else
+                this._quantityInStock--;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Product product = new Product(101, "Laptop", 800, 10);
+
+            Console.WriteLine($"Details of the product:\n Name: {product.ProductName}\n Price: ${product.Price}\n Quantity in stock : {product.QuantityInStock}\n");
+            Console.ReadLine();
+        }
+    }
+}
